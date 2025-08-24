@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>شركة الزيات للإنتاج الداجني</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top Bar -->
+  <header class="top-bar">
+    <div class="container">
+      <div class="logo">
+        <img src="assets/logo.png" alt="شعار شركة الزيات">
+        <h1>الزيات للإنتاج الداجني</h1>
+      </div>
+      <div class="search-bar">
+        <input type="text" id="liveSearch" placeholder="ابحث عن منتج..." oninput="filterProducts()">
+        <button>🔍</button>
+      </div>
+      <div class="social-icons">
+        <a href="#"><img src="assets/icons/facebook.svg" alt="فيسبوك"></a>
+        <a href="#"><img src="assets/icons/instagram.svg" alt="إنستجرام"></a>
+        <a href="#"><img src="assets/icons/whatsapp.svg" alt="واتساب"></a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hamburger Menu -->
+  <nav class="mobile-menu">
+    <button class="hamburger" onclick="toggleMenu()">☰</button>
+    <ul id="menuList" class="menu-list">
+      <li><a href="#" onclick="filterByCategory('all')">كل المنتجات</a></li>
+      <li><a href="#" onclick="filterByCategory('stimulants')">🟢 المنشطات</a></li>
+      <li><a href="#" onclick="filterByCategory('therapeutics')">🟠 الأدوية العلاجية</a></li>
+      <li><a href="#" onclick="filterByCategory('antibiotics')">🔵 المضادات الحيوية</a></li>
+      <li><a href="#">أخبار الشركة</a></li>
+      <li><a href="#">اتصل بنا</a></li>
+    </ul>
+  </nav>
+
+  <!-- Main Products Grid -->
+  <main class="products-container">
+    <div class="container">
+      <h2>الأدوية البيطرية المستوردة</h2>
+      <div class="filters">
+        <select id="categoryFilter" onchange="filterProducts()">
+          <option value="all">جميع التصنيفات</option>
+          <option value="stimulants">🟢 المنشطات</option>
+          <option value="therapeutics">🟠 الأدوية العلاجية</option>
+          <option value="antibiotics">🔵 المضادات الحيوية</option>
+        </select>
+        <select id="sortFilter" onchange="sortProducts()">
+          <option value="default">ترتيب افتراضي</option>
+          <option value="popular">الأكثر مشاهدة</option>
+          <option value="newest">الأحدث</option>
+        </select>
+      </div>
+
+      <div id="productsGrid" class="products-grid">
+        <!-- سيتم تعبئته ديناميكياً عبر JS -->
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2025 شركة الزيات للإنتاج الداجني — جميع الحقوق محفوظة</p>
+      <p><a href="#">الشروط والأحكام</a> | <a href="#">سياسة الخصوصية</a></p>
+    </div>
+  </footer>
+
+  <!-- Lightbox Modal -->
+  <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+    <span class="close">&times;</span>
+    <img id="lightboxImg" class="lightbox-content">
+  </div>
+
+  <script src="scripts/main.js"></script>
+</body>
+</html>
